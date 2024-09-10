@@ -7,7 +7,7 @@ const Header = () => {
 
     return (
         <div
-            className='flex justify-between items-baseline max-w-[340px] pb-2 border-b border-slate-700'
+            className='flex justify-between items-baseline pb-2 border-b border-slate-700'
         >
             <h1>{date.day}</h1>
             <div
