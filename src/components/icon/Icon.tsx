@@ -10,7 +10,7 @@ const Icon = ({
 }: IIconProps) => {
     return (
         <Image
-            src={require(`../assets/${type}.svg`)}
+            src={require(`../../images/${type}.svg`)}
             alt={type}
             className='w-6 h-6'
         />
