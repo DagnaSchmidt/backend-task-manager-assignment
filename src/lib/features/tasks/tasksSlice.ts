@@ -32,6 +32,19 @@ const tasksSlice = createSlice({
         deleteReducerTask(state, action) {
             const newState = state.filter(i => i.id !== action.payload);
             return newState;
+        },
+        checkReducerTaskAsDone(state, action) {
+            const newState = state.map((i) => {
+                if (i.id !== action.payload) {
+                    return i;
+                } else {
+                    return {
+                        ...i,
+                        isDone: true
+                    }
+                }
+            });
+            return newState;
         }
     }
 });
@@ -44,22 +57,22 @@ const tasksSlice = createSlice({
 //     }
 // };
 
-export const addTask = (taskContent: TTaskProps) => {
-    return dispatch => {
-        // const newStory = await createNewTask(taskContent);
-        // dispatch(addReducerTask(newStory));
-        dispatch(addReducerTask(taskContent));
-    }
-};
+// export const addTask = (taskContent: TTaskProps) => {
+//     return dispatch => {
+//         // const newStory = await createNewTask(taskContent);
+//         // dispatch(addReducerTask(newStory));
+//         dispatch(addReducerTask(taskContent));
+//     }
+// };
 
-export const deleteStory = (id: string) => {
-    return dispatch => {
-        // eslint-disable-next-line
-        // const deletedStory = await deleteOneStory(id);
-        // dispatch(deleteReducerStory(id));
-        dispatch(deleteReducerTask(id));
-    }
-};
+// export const deleteStory = (id: string) => {
+//     // return dispatch => {
+//     //     // eslint-disable-next-line
+//     //     // const deletedStory = await deleteOneStory(id);
+//     //     // dispatch(deleteReducerStory(id));
+//     //     dispatch(deleteReducerTask(id));
+//     // }
+// };
 
-export const { addReducerTask, deleteReducerTask } = tasksSlice.actions;
+export const { addReducerTask, deleteReducerTask, checkReducerTaskAsDone } = tasksSlice.actions;
 export default tasksSlice.reducer;
