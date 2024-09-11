@@ -13,7 +13,10 @@ const Task = ({
 
     return (
         <div
-            className='flex flex-col'
+            className={[
+                'flex flex-col',
+                isDone ? 'text-slate-500' : 'text-slate-900'
+            ].join(' ')}
         >
 
             <div
@@ -21,14 +24,24 @@ const Task = ({
             >
                 <div>
                     {/* checkbox */}
-                    <p>
+                    <p
+                        className={[
+                            'text-base tracking-wide',
+                            isDone ? 'line-through font-light' : 'font-semibold'
+                        ].join(' ')}
+                    >
                         {title}
                     </p>
                 </div>
                 <div
                     className='flex gap-2'
                 >
-                    <p>
+                    <p
+                        className={[
+                            'text-sm font-light',
+                            isDone ? 'line-through' : ''
+                        ].join(' ')}
+                    >
                         {dueDate?.toString().slice(3, 10)}
                     </p>
                     <button
