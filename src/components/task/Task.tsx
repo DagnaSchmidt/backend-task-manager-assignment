@@ -1,8 +1,14 @@
 'use client'
 import React, { useState } from 'react';
+import { TTaskProps } from '@/types/types';
 import Icon from '../icon/Icon';
 
-const Task = () => {
+const Task = ({
+    title,
+    description,
+    dueDate,
+    isDone
+}: TTaskProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
     return (
@@ -15,12 +21,16 @@ const Task = () => {
             >
                 <div>
                     {/* checkbox */}
-                    <p>Task title</p>
+                    <p>
+                        {title}
+                    </p>
                 </div>
                 <div
                     className='flex gap-2'
                 >
-                    <p>due date</p>
+                    <p>
+                        {dueDate?.toString().slice(3, 10)}
+                    </p>
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                     >
@@ -36,7 +46,7 @@ const Task = () => {
                     <p
                         className='px-8 py-6'
                     >
-                        description
+                        {description}
                     </p>
 
                     <div
