@@ -16,7 +16,7 @@ const tasksSlice = createSlice({
             title: 'Create API endpoints',
             description: 'Create account on mongo DB atlas and connect it to repo.',
             dueDate: new Date(),
-            isDone: false
+            isDone: true
         }
     ],
     reducers: {

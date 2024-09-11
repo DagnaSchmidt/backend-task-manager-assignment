@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 interface IIconProps {
-    type: 'plus' | 'resizer' | 'time',
+    type: 'plus' | 'resizer' | 'time' | 'check',
 }
 
 const Icon = ({
