@@ -15,8 +15,6 @@ export default function Home() {
     >
       <Header />
       <List list={tasks} />
-      <Button type="add" label="add" />
-      <Button type="delete" label="delete" />
       {/* all components */}
     </div>
   );

@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import { TTaskProps } from '@/types/types';
 import Icon from '../icon/Icon';
+import Checkbox from '../checkbox/Checkbox';
+import Button from '../button/Button';
 
 const Task = ({
+    id,
     title,
     description,
     dueDate,
@@ -22,8 +25,13 @@ const Task = ({
             <div
                 className='flex justify-between'
             >
-                <div>
-                    {/* checkbox */}
+                <div
+                    className='flex gap-2'
+                >
+                    <Checkbox
+                        isChecked={isDone}
+                        onClick={() => { }}
+                    />
                     <p
                         className={[
                             'text-base tracking-wide',
@@ -65,7 +73,7 @@ const Task = ({
                     <div
                         className='self-end'
                     >
-                        <button>delete</button>
+                        <Button type='delete' label='delete' />
                     </div>
                 </div>
             }
