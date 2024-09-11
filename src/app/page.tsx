@@ -1,12 +1,22 @@
 import Header from "@/components/header/Header";
-import Task from "@/components/task/Task";
+import List from "@/components/list/List";
 
-const task = {
-  title: 'Set up database',
-  description: 'Create account on mongo DB atlas and connect it to repo.',
-  dueDate: new Date(),
-  isDone: false
-}
+const tasks = [
+  {
+    id: '098474',
+    title: 'Set up database',
+    description: 'Create account on mongo DB atlas and connect it to repo.',
+    dueDate: new Date(),
+    isDone: false
+  },
+  {
+    id: '09dw74',
+    title: 'Create API endpoints',
+    description: 'Create account on mongo DB atlas and connect it to repo.',
+    dueDate: new Date(),
+    isDone: false
+  }
+]
 
 export default function Home() {
   return (
@@ -14,7 +24,7 @@ export default function Home() {
       className="flex flex-col w-[340px]"
     >
       <Header />
-      <Task {...task} />
+      <List list={tasks} />
       {/* all components */}
     </div>
   );
