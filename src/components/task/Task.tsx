@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { TTaskProps } from '@/types/types';
-import { deleteReducerTask } from '@/lib/features/tasks/tasksSlice';
+import { deleteReducerTask, checkReducerTaskAsDone } from '@/lib/features/tasks/tasksSlice';
 import Icon from '../icon/Icon';
 import Checkbox from '../checkbox/Checkbox';
 import Button from '../button/Button';
@@ -14,7 +14,7 @@ const Task = ({
     dueDate,
     isDone
 }: TTaskProps) => {
-    const [isOpen, setIsOpen] = useState<boolean>(true);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const Task = ({
                 >
                     <Checkbox
                         isChecked={isDone}
-                        onClick={() => { }}
+                        onClick={() => dispatch(checkReducerTaskAsDone(id))}
                     />
                     <p
                         className={[
@@ -75,7 +75,7 @@ const Task = ({
                     </p>
 
                     <div
-                        className='self-end'
+                        className='self-end pb-8'
                     >
                         <Button
                             type='delete'
