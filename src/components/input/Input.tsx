@@ -35,7 +35,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
                 placeholder={placeholder}
                 className={[
                     'w-full h-6 placeholder:text-slate-500 placeholder:text-base hover:bg-slate-100 active:bg-slate-200',
-                    category === 'description' ? 'mr-8' : 'mr-0'
+                    category === 'description' ? 'ml-8' : 'ml-0'
                 ].join(' ')}
             />
         </div>
