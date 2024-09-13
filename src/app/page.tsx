@@ -1,6 +1,7 @@
 'use client'
 import Header from "@/components/header/Header";
 import List from "@/components/list/List";
+import Input from "@/components/input/Input";
 import { useSelector } from "react-redux";
 
 
@@ -14,6 +15,10 @@ export default function Home() {
     >
       <Header />
       <List list={tasks} />
+      <Input
+        category="task"
+        id='task name'
+      />
       {/* all components */}
     </div>
   );
