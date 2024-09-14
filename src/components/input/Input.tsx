@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react';
 import Icon from '../icon/Icon';
 
-interface IInputProps {
+interface IInputProps
+    extends React.InputHTMLAttributes<HTMLInputElement> {
     category: 'task' | 'description' | 'date'
     type?: React.HTMLInputTypeAttribute;
     id: string;
@@ -34,9 +35,10 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(({
                 disabled={disabled}
                 placeholder={placeholder}
                 className={[
-                    'w-full h-6 placeholder:text-slate-500 placeholder:text-base hover:bg-slate-100 active:bg-slate-200',
-                    category === 'description' ? 'mr-8' : 'mr-0'
+                    'w-full h-6 placeholder:text-slate-500 placeholder:text-base bg-slate-300 hover:bg-slate-200 active:bg-slate-200',
+                    category === 'description' ? 'ml-8' : 'ml-0'
                 ].join(' ')}
+                {...rest}
             />
         </div>
     );
