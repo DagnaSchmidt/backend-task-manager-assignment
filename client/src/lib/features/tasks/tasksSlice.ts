@@ -1,19 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Dispatch } from 'redux';
 import { TTaskProps } from '../../../types/types';
+import { getTasks, createTask, deleteTask } from '../../../services/tasks';
 
 const tasksSlice = createSlice({
     name: 'tasks',
     initialState: [
         {
             id: '098474',
-            title: 'Set up database',
+            title: 'FRONTEND DB Set up database',
             description: 'Create account on mongo DB atlas and connect it to repo.',
             dueDate: new Date(),
             isDone: false
         },
         {
             id: '09dw74',
-            title: 'Create API endpoints',
+            title: 'FRONTEND DB Create API endpoints',
             description: 'Create account on mongo DB atlas and connect it to repo.',
             dueDate: new Date(),
             isDone: true
@@ -21,10 +23,10 @@ const tasksSlice = createSlice({
     ],
     reducers: {
         // fetch from DB
-        // setReducerTasks(state, action) {
-        //     const newState = action.payload;
-        //     return newState;
-        // },
+        setReducerState(state, action) {
+            const newState = action.payload;
+            return newState;
+        },
         addReducerTask(state, action) {
             const newState = state.push(action.payload);
             // return newState;
@@ -50,12 +52,12 @@ const tasksSlice = createSlice({
 });
 
 
-// export const setTasks = () => {
-//     return async dispatch => {
-//         const newTasks = await getTasks();
-//         dispatch(setAllReducerStories(newTasks));
-//     }
-// };
+export const setTasks = () => {
+    return async (dispatch: Dispatch) => {
+        const newTasks = await getTasks();
+        dispatch(setReducerState(newTasks));
+    }
+};
 
 // export const addTask = (taskContent: TTaskProps) => {
 //     return dispatch => {
@@ -74,5 +76,5 @@ const tasksSlice = createSlice({
 //     // }
 // };
 
-export const { addReducerTask, deleteReducerTask, checkReducerTaskAsDone } = tasksSlice.actions;
+export const { addReducerTask, deleteReducerTask, checkReducerTaskAsDone, setReducerState } = tasksSlice.actions;
 export default tasksSlice.reducer;
